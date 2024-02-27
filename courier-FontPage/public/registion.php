@@ -1,0 +1,124 @@
+<?php 
+     include_once ('dbconfig.php');
+     
+
+     if(isset($_POST['btnsubmit']))
+     {
+      $name = $_POST['uName'];
+      $bussname = $_POST['bName'];
+      $email = $_POST['uEmail'];
+      $password = $_POST['password'];
+      $contact = $_POST['unumber'];
+      $address = $_POST['address'];
+      $message = $_POST['massage'];
+
+      $error = '';
+
+      
+
+      $sql = "INSERT INTO registion(name,Business_Name,Email,Password,Phone_Number,Address,Message) VALUES('$name','$bussname','$email','$password','$contact','$address','$message')";
+
+      $result = $conn->query($sql);
+
+        if($result)
+        {
+          echo "<b style='background-color: #FF6666;'>";
+          echo " Your Data Successfully Recorded";
+          header("Refresh:5");
+          echo "</b>";
+        }
+        else {
+          echo "Your Data Failed OR Not Recorded";
+        }
+
+     }
+
+
+     ?>
+     
+     <title>courier | Landing, Responsive &amp; Business Templatee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+     <?php 
+        include_once('headers.php');
+     ?>
+     <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5 col-xl-4"><img src="assets/img/illustrations/registion.jpg" alt="..." />
+              <h5 class="text-danger">REGISTION A CALLBACK</h5>
+              <h2>We will contact in the shortest time.</h2>
+              <p class="text-muted"> Any time Maximum 24 hours </p>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4">
+              <h3> Registration Form :</h3>
+              <form class="row" method="post">
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputName">Name</label>
+                  <input class="form-control form-quriar-control" name="uName" type="text" placeholder="Enter Your Name" required="required" />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputName"> Business Name</label>
+                  <input class="form-control form-quriar-control" name="bName" type="text" placeholder="Enter Your Business Name" required="required" />
+                </div>
+                
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputEmail">Email</label>
+                  <input class="form-control form-quriar-control" name="uEmail" type="email" placeholder="Enter Your Email" required="required"/>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputnumber"> Password</label>
+                  <input class="form-control form-quriar-control" name="password" type="text" placeholder="Enter Your Password" required="required"/>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputnumber">Phone Number</label>
+                  <input class="form-control form-quriar-control" name="unumber" type="text" placeholder="Enter Your Contact Number" required="required"/>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="inputnumber">Address </label>
+                  <input class="form-control form-quriar-control" name="address" type="text" placeholder="Enter Your Pick-Up Address" required="required"/>
+                </div>
+                <div class="mb-5">
+                  <label class="form-label visually-hidden" for="validationTextarea">Message</label>
+                  <textarea class="form-control form-quriar-control is-invalid border-400" name="massage" placeholder="Message" style="height: 150px" required="required"></textarea>
+                </div>
+                <div class="d-grid">
+                  <input class="btn btn-primary" name="btnsubmit" type="submit" value="Send">
+                </div>
+                <div style="margin: 15px;">
+                  <p>I have already account?<a href="login.php"><b style="color: green;"> login </b></a> </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+
+      <?php 
+        include_once('footer.php');
+      ?>
